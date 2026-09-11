@@ -1,0 +1,25 @@
+ID   TPARTEMIS; SV 1; linear; genomic DNA; STD; UNC; 360 BP.
+XX
+AC   TP000001;
+XX
+DE   Short artificial sequence for an Artemis practical.
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..360
+FT                   /organism="Synthetic construct"
+FT                   /mol_type="genomic DNA"
+FT   CDS             31..210
+FT                   /gene="demoA"
+FT                   /product="Demonstration protein A"
+FT   misc_feature    240..300
+FT                   /note="Region to inspect during the practical"
+XX
+SQ   Sequence 360 BP; 90 A; 90 C; 90 G; 90 T; 0 other;
+     acgtacgtac gtacgtacgt acgtacgtac gtacgtacgt acgtacgtac gtacgtacgt        60
+     acgtacgtac gtacgtacgt acgtacgtac gtacgtacgt acgtacgtac gtacgtacgt       120
+     acgtacgtac gtacgtacgt acgtacgtac gtacgtacgt acgtacgtac gtacgtacgt       180
+     acgtacgtac gtacgtacgt acgtacgtac gtacgtacgt acgtacgtac gtacgtacgt       240
+     acgtacgtac gtacgtacgt acgtacgtac gtacgtacgt acgtacgtac gtacgtacgt       300
+     acgtacgtac gtacgtacgt acgtacgtac gtacgtacgt acgtacgtac gtacgtacgt       360
+//
