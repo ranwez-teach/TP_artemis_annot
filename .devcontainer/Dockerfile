@@ -1,7 +1,8 @@
 FROM mcr.microsoft.com/devcontainers/java:1-11-bookworm
 
 ARG ARTEMIS_VERSION=18.2.0
-RUN apt-get update \
+RUN rm -f /etc/apt/sources.list.d/yarn.list /etc/apt/sources.list.d/yarn.list.save \
+    && apt-get update \
     && apt-get install -y --no-install-recommends \
         ca-certificates \
         curl \

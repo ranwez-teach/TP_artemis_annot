@@ -65,6 +65,11 @@ n'a probablement pas ete construit avec `.devcontainer/Dockerfile`. Dans ce cas 
 4. si le probleme persiste, supprimer le Codespace et en recreer un neuf depuis la
    branche actuelle.
 
+Si la creation du Codespace bascule en **recovery mode**, ouvrez les logs de
+creation. Une erreur du type `NO_PUBKEY ... dl.yarnpkg.com` indique que le depot
+APT Yarn fourni par l'image de base a une cle GPG invalide. Le Dockerfile supprime
+ce depot avant `apt-get update`, car Yarn n'est pas necessaire pour ce TP.
+
 ## Notes pratiques pour un TP
 
 - Chaque etudiant consomme un Codespace GitHub distinct.
