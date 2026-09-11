@@ -55,6 +55,16 @@ l'installation Artemis est presente :
 bash scripts/check-artemis-install.sh
 ```
 
+Si cette commande indique que `/opt/artemis/art` est absent, le Codespace courant
+n'a probablement pas ete construit avec `.devcontainer/Dockerfile`. Dans ce cas :
+
+1. verifier que `.devcontainer/devcontainer.json` et `.devcontainer/Dockerfile`
+   sont bien presents sur GitHub dans la branche utilisee ;
+2. ouvrir la palette de commandes de VS Code dans le navigateur ;
+3. lancer **Codespaces: Rebuild Container** ;
+4. si le probleme persiste, supprimer le Codespace et en recreer un neuf depuis la
+   branche actuelle.
+
 ## Notes pratiques pour un TP
 
 - Chaque etudiant consomme un Codespace GitHub distinct.

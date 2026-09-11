@@ -1,15 +1,32 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ARTEMIS_BIN="${ARTEMIS_BIN:-/opt/artemis/art}"
+ARTEMIS_BIN="${ARTEMIS_BIN:-}"
 
-if [[ ! -x "${ARTEMIS_BIN}" ]]; then
-  echo "Missing Artemis executable: ${ARTEMIS_BIN}" >&2
+if [[ -z "${ARTEMIS_BIN}" ]]; then
+  for candidate in /opt/artemis/art "$(command -v art || true)" "$(command -v artemis || true)"; do
+    if [[ -n "${candidate}" && -x "${candidate}" ]]; then
+      ARTEMIS_BIN="${candidate}"
+      break
+    fi
+  done
+fi
+
+if [[ -z "${ARTEMIS_BIN}" || ! -x "${ARTEMIS_BIN}" ]]; then
+  echo "Artemis is not installed in this container." >&2
+  echo "Expected /opt/artemis/art, or an art/artemis command in PATH." >&2
+  echo >&2
+  echo "If you are in GitHub Codespaces, rebuild the container:" >&2
+  echo "  Command Palette > Codespaces: Rebuild Container" >&2
+  echo >&2
+  echo "If that still fails, delete the Codespace and create a new one from the current branch." >&2
   exit 1
 fi
 
-if [[ ! -f "/opt/artemis/artemis.jar" ]]; then
-  echo "Missing Artemis jar: /opt/artemis/artemis.jar" >&2
+ARTEMIS_DIR="$(cd "$(dirname "${ARTEMIS_BIN}")" && pwd)"
+
+if [[ ! -f "${ARTEMIS_DIR}/artemis.jar" ]]; then
+  echo "Missing Artemis jar: ${ARTEMIS_DIR}/artemis.jar" >&2
   exit 1
 fi
 
