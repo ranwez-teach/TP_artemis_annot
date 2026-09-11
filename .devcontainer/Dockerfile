@@ -30,5 +30,5 @@ RUN curl -fsSL "https://github.com/sanger-pathogens/Artemis/releases/download/v$
     && ln -s /opt/artemis/art /usr/local/bin/artemis
 
 ENV ARTEMIS_HOME=/opt/artemis
-ENV ARTEMIS_JVM_FLAGS="-mx2g -ms100m -Duser.home=/home/vscode -Djava.io.tmpdir=/tmp"
+ENV ARTEMIS_JVM_FLAGS="-mx2g -ms100m -Duser.home=/home/vscode -Djava.io.tmpdir=/tmp -Dsun.java2d.xrender=false -Dsun.java2d.pmoffscreen=false"
 ENV PATH="/opt/artemis:/opt/artemis/dist:/opt/artemis/etc:${PATH}"

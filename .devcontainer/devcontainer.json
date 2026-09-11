@@ -9,6 +9,11 @@
       "webPort": "6080"
     }
   },
+  "containerEnv": {
+    "VNC_RESOLUTION": "1440x900x24",
+    "VNC_DPI": "96",
+    "ARTEMIS_JVM_FLAGS": "-mx2g -ms100m -Duser.home=/home/vscode -Djava.io.tmpdir=/tmp -Dsun.java2d.xrender=false -Dsun.java2d.pmoffscreen=false"
+  },
   "forwardPorts": [
     6080
   ],

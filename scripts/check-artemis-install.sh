@@ -25,8 +25,8 @@ fi
 
 ARTEMIS_DIR="$(cd "$(dirname "${ARTEMIS_BIN}")" && pwd)"
 
-if [[ ! -f "${ARTEMIS_DIR}/artemis.jar" ]]; then
-  echo "Missing Artemis jar: ${ARTEMIS_DIR}/artemis.jar" >&2
+if [[ ! -f "${ARTEMIS_DIR}/dist/artemis.jar" && ! -f "${ARTEMIS_DIR}/target/jars/artemis.jar" ]]; then
+  echo "Missing Artemis jar under ${ARTEMIS_DIR}/dist or ${ARTEMIS_DIR}/target/jars." >&2
   exit 1
 fi
 

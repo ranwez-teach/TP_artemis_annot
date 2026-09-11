@@ -19,6 +19,14 @@ dans le Codespace :
 cat /tmp/artemis.log
 ```
 
+Pendant la phase de test, le script ouvre aussi une petite fenetre `xterm` dans le
+bureau noVNC avec ce log. Si le bureau noVNC est noir mais que cette fenetre
+apparait, le bureau fonctionne et le probleme vient du lancement Artemis.
+
+Le bureau noVNC est force en couleur 24 bits et Artemis est lance avec
+`-Dsun.java2d.xrender=false -Dsun.java2d.pmoffscreen=false` pour eviter des
+problemes de rendu Swing dans VNC.
+
 ## Fichiers du TP
 
 Les donnees sont dans `data/`. Le fichier ouvert par defaut est :
